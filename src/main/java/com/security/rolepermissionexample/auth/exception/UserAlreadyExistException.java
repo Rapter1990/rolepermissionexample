@@ -8,7 +8,7 @@ public class UserAlreadyExistException extends RuntimeException {
     private static final long serialVersionUID = -3898725915862534787L;
 
     private static final String DEFAULT_MESSAGE = """
-            Admin already exist!
+            User already exist!
             """;
 
     public UserAlreadyExistException() {
