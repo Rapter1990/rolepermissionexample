@@ -3,9 +3,13 @@ package com.security.rolepermissionexample.auth.controller;
 import com.security.rolepermissionexample.auth.model.Token;
 import com.security.rolepermissionexample.auth.model.dto.request.LoginRequest;
 import com.security.rolepermissionexample.auth.model.dto.request.RegisterRequest;
+import com.security.rolepermissionexample.auth.model.dto.request.TokenInvalidateRequest;
+import com.security.rolepermissionexample.auth.model.dto.request.TokenRefreshRequest;
 import com.security.rolepermissionexample.auth.model.dto.response.TokenResponse;
 import com.security.rolepermissionexample.auth.model.mapper.TokenToTokenResponseMapper;
 import com.security.rolepermissionexample.auth.service.LoginService;
+import com.security.rolepermissionexample.auth.service.LogoutService;
+import com.security.rolepermissionexample.auth.service.RefreshTokenService;
 import com.security.rolepermissionexample.auth.service.RegisterService;
 import com.security.rolepermissionexample.common.model.dto.response.CustomResponse;
 import jakarta.validation.Valid;
@@ -24,6 +28,10 @@ public class AuthController {
 
     private final LoginService loginService;
 
+    private final RefreshTokenService refreshTokenService;
+
+    private final LogoutService logoutService;
+
 
     private final TokenToTokenResponseMapper tokenToTokenResponseMapper = TokenToTokenResponseMapper.initialize();
 
@@ -39,5 +47,19 @@ public class AuthController {
         final TokenResponse tokenResponse = tokenToTokenResponseMapper.map(token);
         return CustomResponse.successOf(tokenResponse);
     }
+
+    @PostMapping("/refresh-token")
+    public CustomResponse<TokenResponse> refreshToken(@RequestBody @Valid final TokenRefreshRequest tokenRefreshRequest) {
+        final Token token = refreshTokenService.refreshToken(tokenRefreshRequest);
+        final TokenResponse tokenResponse = tokenToTokenResponseMapper.map(token);
+        return CustomResponse.successOf(tokenResponse);
+    }
+
+    @PostMapping("/logout")
+    public CustomResponse<Void> logout(@RequestBody @Valid final TokenInvalidateRequest tokenInvalidateRequest) {
+        logoutService.logout(tokenInvalidateRequest);
+        return CustomResponse.SUCCESS;
+    }
+
 
 }
