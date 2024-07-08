@@ -6,9 +6,7 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 @Getter
-@Setter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class CustomPage<T> {
     private List<T> content;
