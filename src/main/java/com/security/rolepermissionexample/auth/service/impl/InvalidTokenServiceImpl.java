@@ -19,14 +19,14 @@ public class InvalidTokenServiceImpl implements InvalidTokenService {
     @Override
     public void invalidateTokens(Set<String> tokenIds) {
 
-        final Set<InvalidTokenEntity> enocaInvalidTokenEntities = tokenIds.stream()
+        final Set<InvalidTokenEntity> invalidTokenEntities = tokenIds.stream()
                 .map(tokenId -> InvalidTokenEntity.builder()
                         .tokenId(tokenId)
                         .build()
                 )
                 .collect(Collectors.toSet());
 
-        invalidTokenRepository.saveAll(enocaInvalidTokenEntities);
+        invalidTokenRepository.saveAll(invalidTokenEntities);
     }
 
     @Override
