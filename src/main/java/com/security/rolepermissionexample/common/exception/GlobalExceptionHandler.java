@@ -1,6 +1,9 @@
 package com.security.rolepermissionexample.common.exception;
 
+import com.security.rolepermissionexample.auth.exception.*;
 import com.security.rolepermissionexample.common.model.CustomError;
+import com.security.rolepermissionexample.product.exception.ProductAlreadyExistException;
+import com.security.rolepermissionexample.product.exception.ProductNotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.security.access.AccessDeniedException;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -95,6 +99,112 @@ public class GlobalExceptionHandler {
                 .build();
 
         return new ResponseEntity<>(customError, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(PasswordNotValidException.class)
+    public ResponseEntity<CustomError> handlePasswordNotValidException(final PasswordNotValidException ex) {
+
+        CustomError error = CustomError.builder()
+                .httpStatus(HttpStatus.BAD_REQUEST)
+                .header(CustomError.Header.VALIDATION_ERROR.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(PermissionNotFoundException.class)
+    public ResponseEntity<CustomError> handlePermissionNotFoundException(final PermissionNotFoundException ex) {
+
+        CustomError error = CustomError.builder()
+                .httpStatus(HttpStatus.NOT_FOUND)
+                .header(CustomError.Header.NOT_FOUND.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(RoleNotFoundException.class)
+    public ResponseEntity<CustomError> handleRoleNotFoundException(final RoleNotFoundException ex) {
+
+        CustomError error = CustomError.builder()
+                .time(LocalDateTime.now())
+                .httpStatus(HttpStatus.NOT_FOUND)
+                .header(CustomError.Header.NOT_FOUND.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(TokenAlreadyInvalidatedException.class)
+    public ResponseEntity<CustomError> handleTokenAlreadyInvalidatedException(final TokenAlreadyInvalidatedException ex) {
+        CustomError error = CustomError.builder()
+                .time(LocalDateTime.now())
+                .httpStatus(HttpStatus.BAD_REQUEST)
+                .header(CustomError.Header.VALIDATION_ERROR.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UserAlreadyExistException.class)
+    public ResponseEntity<CustomError> handleUserAlreadyExistException(final UserAlreadyExistException ex) {
+        CustomError error = CustomError.builder()
+                .httpStatus(HttpStatus.CONFLICT)
+                .header(CustomError.Header.ALREADY_EXIST.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<CustomError> handleUserNotFoundException(final UserNotFoundException ex) {
+        CustomError error = CustomError.builder()
+                .httpStatus(HttpStatus.NOT_FOUND)
+                .header(CustomError.Header.NOT_FOUND.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(UserStatusNotValidException.class)
+    public ResponseEntity<CustomError> handleUserStatusNotValidException(final UserStatusNotValidException ex) {
+        CustomError error = CustomError.builder()
+                .httpStatus(HttpStatus.BAD_REQUEST)
+                .header(CustomError.Header.VALIDATION_ERROR.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ProductAlreadyExistException.class)
+    public ResponseEntity<CustomError> handleProductAlreadyExistException(final ProductAlreadyExistException ex) {
+        CustomError error = CustomError.builder()
+                .time(LocalDateTime.now())
+                .httpStatus(HttpStatus.CONFLICT)
+                .header(CustomError.Header.ALREADY_EXIST.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<CustomError> handleProductNotFoundException(final ProductNotFoundException ex) {
+        CustomError error = CustomError.builder()
+                .time(LocalDateTime.now())
+                .httpStatus(HttpStatus.NOT_FOUND)
+                .header(CustomError.Header.NOT_FOUND.getName())
+                .message(ex.getMessage())
+                .isSuccess(false)
+                .build();
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
 }
