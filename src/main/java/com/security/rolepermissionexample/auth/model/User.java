@@ -23,4 +23,5 @@ public class User extends BaseDomainModel {
     private String phoneNumber;
     private UserStatus userStatus;
     private List<Role> roles;
+    private List<Permission> permissions;
 }

@@ -37,7 +37,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public CustomResponse<Void> registerAdmin(@RequestBody @Valid final RegisterRequest registerRequest) {
-        registerService.registerAdmin(registerRequest);
+        registerService.registerUser(registerRequest);
         return CustomResponse.SUCCESS;
     }
 

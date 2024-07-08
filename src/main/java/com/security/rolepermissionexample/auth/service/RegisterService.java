@@ -5,5 +5,5 @@ import com.security.rolepermissionexample.auth.model.dto.request.RegisterRequest
 
 public interface RegisterService {
 
-    User registerAdmin(final RegisterRequest registerRequest);
+    User registerUser(final RegisterRequest registerRequest);
 }

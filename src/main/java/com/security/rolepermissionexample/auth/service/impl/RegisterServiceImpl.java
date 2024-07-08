@@ -39,7 +39,7 @@ public class RegisterServiceImpl implements RegisterService {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public User registerAdmin(RegisterRequest registerRequest) {
+    public User registerUser(RegisterRequest registerRequest) {
 
         if (userRepository.existsUserEntityByEmail(registerRequest.getEmail())) {
             throw new UserAlreadyExistException("The email is already used for another user : " + registerRequest.getEmail());
