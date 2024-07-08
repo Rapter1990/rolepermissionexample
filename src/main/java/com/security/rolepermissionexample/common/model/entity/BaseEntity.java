@@ -44,7 +44,7 @@ public class BaseEntity {
                 .filter(user -> !"anonymousUser".equals(user))
                 .map(Jwt.class::cast)
                 .map(jwt -> jwt.getClaim(TokenClaims.USER_EMAIL.getValue()).toString())
-                .orElse("AYS");
+                .orElse("anonymousUser");
         this.createdAt = LocalDateTime.now();
     }
 
@@ -55,7 +55,7 @@ public class BaseEntity {
                 .filter(user -> !"anonymousUser".equals(user))
                 .map(Jwt.class::cast)
                 .map(jwt -> jwt.getClaim(TokenClaims.USER_EMAIL.getValue()).toString())
-                .orElse("AYS");
+                .orElse("anonymousUser");
         this.updatedAt = LocalDateTime.now();
     }
 

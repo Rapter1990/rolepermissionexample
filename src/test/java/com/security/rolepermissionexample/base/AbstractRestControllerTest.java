@@ -40,7 +40,7 @@ public class AbstractRestControllerTest extends AbstractTestContainerConfigurati
     protected Token mockAdminGetToken;
     protected Token mockAdminUpdateToken;
     protected Token mockAdminDeleteToken;
-    protected Token mockUserToken;
+    protected Token mockUserGetToken;
 
     @Mock
     private TokenConfigurationParameter tokenConfiguration;
@@ -93,7 +93,7 @@ public class AbstractRestControllerTest extends AbstractTestContainerConfigurati
         this.mockAdminDeleteToken = this.generate(adminEntity.getClaims());
 
         // Generate token for User
-        this.mockUserToken = this.generate(userEntity.getClaims());
+        this.mockUserGetToken = this.generate(userEntity.getClaims());
     }
 
     private Token generate(Map<String, Object> claims) {
