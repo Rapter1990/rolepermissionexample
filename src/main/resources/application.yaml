@@ -1,0 +1,25 @@
+server:
+  port: 1225
+
+# MYSQL
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    name: mysql
+    url: jdbc:mysql://${SECURITY_DB_IP:localhost}:${SECURITY_DB_PORT:3306}/springbootrolepermissionexample
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:password}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
