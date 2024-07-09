@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service implementation named {@link ProductReadServiceImpl} for reading products.
+ */
 @Service
 @RequiredArgsConstructor
 public class ProductReadServiceImpl implements ProductReadService {
@@ -26,6 +29,13 @@ public class ProductReadServiceImpl implements ProductReadService {
     private final ListProductEntityToListProductMapper listProductEntityToListProductMapper =
             ListProductEntityToListProductMapper.initialize();
 
+    /**
+     * Retrieves a product by its unique ID.
+     *
+     * @param productId The ID of the product to retrieve.
+     * @return The Product object corresponding to the given ID.
+     * @throws ProductNotFoundException If no product with the given ID exists.
+     */
     @Override
     public Product getProductById(String productId) {
 
@@ -36,6 +46,13 @@ public class ProductReadServiceImpl implements ProductReadService {
         return productEntityToProductMapper.map(productEntityFromDB);
     }
 
+    /**
+     * Retrieves a page of products based on the paging request criteria.
+     *
+     * @param productPagingRequest The paging request criteria.
+     * @return A CustomPage containing the list of products that match the paging criteria.
+     * @throws ProductNotFoundException If no products are found based on the paging criteria.
+     */
     @Override
     public CustomPage<Product> getProducts(ProductPagingRequest productPagingRequest) {
 

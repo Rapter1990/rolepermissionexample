@@ -16,6 +16,9 @@ import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents a persistent entity for a product as {@link ProductEntity}.
+ */
 @Getter
 @Setter
 @SuperBuilder

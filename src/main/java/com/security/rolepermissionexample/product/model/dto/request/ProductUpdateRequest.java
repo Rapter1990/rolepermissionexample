@@ -6,6 +6,9 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents a request object for updating an existing product as {@link ProductUpdateRequest}.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

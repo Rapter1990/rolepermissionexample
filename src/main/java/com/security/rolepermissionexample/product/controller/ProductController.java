@@ -21,6 +21,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Controller class named {@link ProductController} for handling product-related CRUD operations.
+ * Exposes endpoints under "/api/v1/products".
+ */
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
@@ -37,6 +41,12 @@ public class ProductController {
     private final CustomPageToCustomPagingResponseMapper customPageToCustomPagingResponseMapper =
             CustomPageToCustomPagingResponseMapper.initialize();
 
+    /**
+     * Creates a new product.
+     *
+     * @param productCreateRequest the request body containing product creation details
+     * @return a CustomResponse with the ID of the created product upon successful creation
+     */
     @PostMapping
     @PreAuthorize("hasAnyAuthority('admin:create')")
     public CustomResponse<String> createProduct(@RequestBody @Valid final ProductCreateRequest productCreateRequest) {
@@ -47,6 +57,12 @@ public class ProductController {
         return CustomResponse.successOf(createdProduct.getId());
     }
 
+    /**
+     * Retrieves a product by its ID.
+     *
+     * @param productId the ID of the product to retrieve
+     * @return a CustomResponse containing the product details
+     */
     @GetMapping("/{productId}")
     @PreAuthorize("hasAnyAuthority('admin:get', 'user:get')")
     public CustomResponse<ProductResponse> getProductById(@PathVariable @UUID final String productId) {
@@ -59,6 +75,12 @@ public class ProductController {
 
     }
 
+    /**
+     * Retrieves a list of products based on pagination criteria.
+     *
+     * @param productPagingRequest the request body containing pagination parameters
+     * @return a CustomResponse with paginated product details
+     */
     @GetMapping
     @PreAuthorize("hasAnyAuthority('admin:get', 'user:get')")
     public CustomResponse<CustomPagingResponse<ProductResponse>> getProducts(
@@ -73,6 +95,13 @@ public class ProductController {
 
     }
 
+    /**
+     * Updates an existing product by its ID.
+     *
+     * @param productUpdateRequest the request body containing updated product details
+     * @param productId            the ID of the product to update
+     * @return a CustomResponse with updated product details
+     */
     @PutMapping("/{productId}")
     @PreAuthorize("hasAnyAuthority('admin:update')")
     public CustomResponse<ProductResponse> updatedProductById(
@@ -86,6 +115,12 @@ public class ProductController {
         return CustomResponse.successOf(productResponse);
     }
 
+    /**
+     * Deletes a product by its ID.
+     *
+     * @param productId the ID of the product to delete
+     * @return a CustomResponse indicating the success of the deletion operation
+     */
     @DeleteMapping("/{productId}")
     @PreAuthorize("hasAnyAuthority('admin:delete')")
     public CustomResponse<Void> deleteProductById(@PathVariable @UUID final String productId) {

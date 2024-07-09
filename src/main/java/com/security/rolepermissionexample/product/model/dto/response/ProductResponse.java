@@ -8,6 +8,9 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents a response object containing product details as {@link ProductResponse}.
+ */
 @Getter
 @Setter
 @Builder

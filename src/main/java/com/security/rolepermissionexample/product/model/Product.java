@@ -10,6 +10,9 @@ import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 
+/**
+ * Represents a domain model for a product as {@link Product}.
+ */
 @Getter
 @Setter
 @SuperBuilder

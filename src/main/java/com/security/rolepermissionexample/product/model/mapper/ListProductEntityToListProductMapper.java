@@ -8,11 +8,20 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Mapper interface named {@link ListProductEntityToListProductMapper} for converting {@link List<ProductEntity>} to {@link List<Product>}.
+ */
 @Mapper
 public interface ListProductEntityToListProductMapper {
 
     ProductEntityToProductMapper productEntityToProductMapper = Mappers.getMapper(ProductEntityToProductMapper.class);
 
+    /**
+     * Converts a list of ProductEntity objects to a list of Product objects.
+     *
+     * @param productEntities The list of ProductEntity objects to convert.
+     * @return List of Product objects containing mapped data.
+     */
     default List<Product> toProductList(List<ProductEntity> productEntities) {
 
         if (productEntities == null) {
@@ -25,7 +34,11 @@ public interface ListProductEntityToListProductMapper {
 
     }
 
-
+    /**
+     * Initializes and returns an instance of ListProductEntityToListProductMapper.
+     *
+     * @return Initialized ListProductEntityToListProductMapper instance.
+     */
     static ListProductEntityToListProductMapper initialize() {
         return Mappers.getMapper(ListProductEntityToListProductMapper.class);
     }

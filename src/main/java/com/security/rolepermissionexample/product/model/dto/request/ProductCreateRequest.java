@@ -6,7 +6,9 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
-
+/**
+ * Represents a request object for creating a new product as {@link ProductCreateRequest}.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

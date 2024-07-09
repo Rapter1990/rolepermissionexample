@@ -4,6 +4,9 @@ import com.security.rolepermissionexample.common.model.dto.request.CustomPagingR
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Represents a paging request object for retrieving products as {@link ProductPagingRequest}.
+ */
 @Getter
 @Setter
 @SuperBuilder
