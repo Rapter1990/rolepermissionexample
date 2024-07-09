@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Represents an entity as {@link UserEntity} for users.
+ */
 @Entity
 @Getter
 @Setter

@@ -3,6 +3,10 @@ package com.security.rolepermissionexample.auth.model.enums;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Enum representing various claims used in JWT tokens as {@link TokenClaims}.
+ * Each enum constant holds a string value corresponding to the claim's name.
+ */
 @Getter
 @RequiredArgsConstructor
 public enum TokenClaims {

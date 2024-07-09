@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Represents a login request as {@link LoginRequest} with email and password.
+ */
 @Getter
 @Setter
 @Builder

@@ -7,6 +7,9 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+/**
+ * Represents an entity as {@link RoleEntity} for roles.
+ */
 @Entity
 @Getter
 @Setter

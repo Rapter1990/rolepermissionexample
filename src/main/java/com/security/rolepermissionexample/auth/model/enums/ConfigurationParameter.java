@@ -3,6 +3,10 @@ package com.security.rolepermissionexample.auth.model.enums;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Enum representing various configuration parameters as {@link ConfigurationParameter}.
+ * Each enum constant holds a default value for the corresponding configuration parameter.
+ */
 @Getter
 @RequiredArgsConstructor
 public enum ConfigurationParameter {

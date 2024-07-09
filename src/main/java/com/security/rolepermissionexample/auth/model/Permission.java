@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Represents a permission domain object as {@link Permission} in the application.
+ */
 @Getter
 @Setter
 @SuperBuilder

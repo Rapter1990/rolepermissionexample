@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Represents an entity as {@link PermissionEntity} for permissions.
+ */
 @Entity
 @Getter
 @Setter

@@ -2,6 +2,9 @@ package com.security.rolepermissionexample.auth.model.dto.response;
 
 import lombok.*;
 
+/**
+ * Represents a response as {@link TokenResponse} containing access and refresh tokens.
+ */
 @Getter
 @Setter
 @Builder

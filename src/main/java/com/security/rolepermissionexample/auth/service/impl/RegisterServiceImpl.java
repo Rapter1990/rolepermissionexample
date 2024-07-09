@@ -21,6 +21,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Service implementation named {@link RegisterServiceImpl} for user registration operations.
+ */
 @Service
 @RequiredArgsConstructor
 public class RegisterServiceImpl implements RegisterService {
@@ -38,6 +41,12 @@ public class RegisterServiceImpl implements RegisterService {
 
     private final PasswordEncoder passwordEncoder;
 
+    /**
+     * Registers a new user based on the provided registration request.
+     *
+     * @param registerRequest The registration request containing user details.
+     * @return The registered user entity.
+     */
     @Override
     public User registerUser(RegisterRequest registerRequest) {
 

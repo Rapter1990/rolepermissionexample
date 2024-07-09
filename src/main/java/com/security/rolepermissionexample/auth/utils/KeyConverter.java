@@ -11,10 +11,20 @@ import java.io.StringReader;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
+/**
+ * Utility class named {@link KeyConverter} for converting PEM formatted keys to Java PublicKey and PrivateKey objects.
+ */
 @UtilityClass
 public class KeyConverter {
 
-    public static PublicKey convertPublicKey(final String publicPemKey) {
+    /**
+     * Converts a PEM formatted public key string to a Java PublicKey object.
+     *
+     * @param publicPemKey The PEM formatted public key string.
+     * @return The converted PublicKey object.
+     * @throws RuntimeException If an IOException occurs during key conversion.
+     */
+    public PublicKey convertPublicKey(final String publicPemKey) {
 
         final StringReader keyReader = new StringReader(publicPemKey);
         try {
@@ -27,7 +37,14 @@ public class KeyConverter {
 
     }
 
-    public static PrivateKey convertPrivateKey(final String privatePemKey) {
+    /**
+     * Converts a PEM formatted private key string to a Java PrivateKey object.
+     *
+     * @param privatePemKey The PEM formatted private key string.
+     * @return The converted PrivateKey object.
+     * @throws RuntimeException If an IOException occurs during key conversion.
+     */
+    public PrivateKey convertPrivateKey(final String privatePemKey) {
 
         StringReader keyReader = new StringReader(privatePemKey);
         try {

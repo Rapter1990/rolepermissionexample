@@ -9,6 +9,11 @@ import lombok.*;
 
 import java.util.List;
 
+/**
+ * Represents a register request as {@link RegisterRequest} with user details
+ * including email, password, first name, last name,
+ * phone number, roles, and permissions.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

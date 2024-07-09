@@ -9,6 +9,9 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+/**
+ * Represents a role domain object as {@link Role} in the application.
+ */
 @Getter
 @Setter
 @SuperBuilder

@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
+/**
+ * Configuration class named {@link TokenConfigurationParameter} for token parameters used in authentication and authorization.
+ */
 @Getter
 @Configuration
 public class TokenConfigurationParameter {
@@ -17,6 +20,9 @@ public class TokenConfigurationParameter {
     private final PublicKey publicKey;
     private final PrivateKey privateKey;
 
+    /**
+     * Constructs a new {@link TokenConfigurationParameter} instance with default values from {@link ConfigurationParameter}.
+     */
     public TokenConfigurationParameter() {
 
         this.issuer = ConfigurationParameter.ISSUER.getDefaultValue();

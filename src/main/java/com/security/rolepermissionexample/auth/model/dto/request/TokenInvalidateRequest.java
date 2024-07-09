@@ -3,6 +3,9 @@ package com.security.rolepermissionexample.auth.model.dto.request;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+/**
+ * Represents a request as {@link TokenInvalidateRequest} to invalidate tokens.
+ */
 @Getter
 @Setter
 @Builder

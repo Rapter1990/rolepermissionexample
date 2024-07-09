@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Represents an entity as {@link InvalidTokenEntity} for invalid tokens.
+ */
 @Entity
 @Getter
 @Setter

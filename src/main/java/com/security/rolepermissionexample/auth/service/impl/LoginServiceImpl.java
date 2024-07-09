@@ -12,6 +12,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service implementation named {@link LoginServiceImpl} for handling user login operations.
+ */
 @Service
 @RequiredArgsConstructor
 public class LoginServiceImpl implements LoginService {
@@ -20,6 +23,12 @@ public class LoginServiceImpl implements LoginService {
     private final PasswordEncoder passwordEncoder;
     private final TokenService tokenService;
 
+    /**
+     * Performs user login based on the provided login request.
+     *
+     * @param loginRequest The login request containing user credentials.
+     * @return The token representing the user's session.
+     */
     @Override
     public Token login(LoginRequest loginRequest) {
 
