@@ -17,6 +17,10 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+/**
+ * Base entity class named {@link BaseEntity} with common fields for audit tracking and lifecycle management.
+ * Provides automatic population of audit fields using JPA lifecycle annotations.
+ */
 @Getter
 @Setter
 @SuperBuilder
@@ -37,6 +41,10 @@ public class BaseEntity {
     @Column(name = "UPDATED_BY")
     private String updatedBy;
 
+    /**
+     * Sets the createdBy and createdAt fields before persisting the entity.
+     * If no authenticated user is found, sets createdBy to "anonymousUser".
+     */
     @PrePersist
     public void prePersist() {
         this.createdBy = Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
@@ -48,6 +56,10 @@ public class BaseEntity {
         this.createdAt = LocalDateTime.now();
     }
 
+    /**
+     * Sets the updatedBy and updatedAt fields before updating the entity.
+     * If no authenticated user is found, sets updatedBy to "anonymousUser".
+     */
     @PreUpdate
     public void preUpdate() {
         this.updatedBy = Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
