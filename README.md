@@ -1,4 +1,4 @@
-# ROLE WITH PERMISSION THORUGH SPRING SECURITY IN SPRING BOOT
+# ROLE WITH PERMISSION THROUGH SPRING SECURITY IN SPRING BOOT
 
 <p align="center">
     <img src="screenshots/spring_boot_role_permission_main_image.png" alt="Main Information" width="700" height="500">
