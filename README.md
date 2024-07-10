@@ -140,6 +140,7 @@
 - Docker Compose
 - CI/CD (Github Actions)
 - Postman
+- Spring Boot Open Api
 
 
 ### Postman
@@ -148,6 +149,11 @@
 Import postman collection under postman_collection folder
 ```
 
+### Open Api
+
+```
+http://localhost:1225/swagger-ui/index.html
+```
 
 ### Prerequisites
 

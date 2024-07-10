@@ -23,3 +23,10 @@ spring:
   sql:
     init:
       mode: always
+
+
+# SWAGGER
+springdoc:
+  api-docs:
+    enabled: true
+  show-actuator: true
