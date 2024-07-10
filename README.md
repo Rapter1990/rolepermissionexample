@@ -214,6 +214,8 @@ $ mvn spring-boot:run
     <img src ="screenshots/6.PNG">
     <p> Figure 7 </p>
     <img src ="screenshots/7.PNG">
+    <p> Figure 8 </p>
+    <img src ="screenshots/8.PNG">
 </details>
 
 ### Contributors
